@@ -39,7 +39,7 @@ class Plugin(BasePlugin[OpenInNewTabPluginConfig]):
     def on_config(self, config):
         self.config.site_url = config["site_url"]
 
-    def on_page_content(self, html, page, config, files):
+    def on_post_page(self, html, **kwargs):
         """
         Searches for a tags with attribute href
         Adds target="_blank" to any link that is not from 127.0.0.1 or `site_url` config
