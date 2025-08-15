@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mkdocs-plugin-open-external-links-in-new-tab"
+description = "Plugin for mkdocs to open external links in a new tab. Adds target=\"_blank\" to any link that is not from 127.0.0.1 or `site_url` config"
+readme = "README.md"
+keywords = [
+    "mkdocs",
+    "mkdocs-plugin",
+]
+license = {text = "MIT"}
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+]
+urls = {Homepage = "https://github.com/z-aki/mkdocs-plugin-open-external-links-in-new-tab", Source = "https://github.com/z-aki/mkdocs-plugin-open-external-links-in-new-tab"}
+dynamic = ["version"]
+requires-python = ">=3.7"
+dependencies = [
+    "lxml"
+]
+
+[tool.setuptools]
+platforms = ["any"]
+
+[tool.setuptools.dynamic]
+version = {attr = "mkdocs_plugin_open_external_links_in_new_tab.__version__"}
+
+[project.entry-points."mkdocs.plugins"]
+"mkdocs-plugin-open-external-links-in-new-tab"= "mkdocs_plugin_open_external_links_in_new_tab.plugin:Plugin"
