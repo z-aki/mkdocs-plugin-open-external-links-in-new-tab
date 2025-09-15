@@ -2,9 +2,9 @@
 
 This plugin allows you to open external links in a new tab. Adds `target="_blank"` and `"rel"="noopener noreferrer"`  to any link that is not from 127.0.0.1 or `site_url` config.
 
-Certain file extensions (.pdf etc.) to be opened a new tab can also be customized.
+Certain file extensions (.pdf etc.) to be opened a new tab can also be customized. The defaults are .pdf and .zip.
 
-The CSS icon before/after the link can also be customized.
+The CSS icon before/after the link can also be customized as shown [below](#optional-css-for-adding-an-open-in-external-tab-icon)
 
 > ![image](img_css.jpg)
 
@@ -40,10 +40,10 @@ plugins:
         - ".zip"
 ```
 
-This plugin also adds `plugin_open_external_links_in_new_tab` attribute to the filtered URLs'
-`a` element for easy CSS access.
+## Optional CSS for adding an open in external tab icon
 
-#### Optional CSS for icon
+This plugin also adds the class `plugin_open_external_links_in_new_tab` to the filtered URLs'
+`a` element's `class` attribute for easy CSS access.
 
 Add the CSS to customize the icon appearance.
 
@@ -52,15 +52,16 @@ Change `::before` to `::after` if you want to place the icon after the text.
 ```css
 /* docs/stylesheets/extra.css */
 /* https://stackoverflow.com/questions/1899772/what-is-the-best-practice-for-showing-an-icon-next-to-text */
-.md-typeset a[plugin_open_external_links_in_new_tab]::before {
+.md-typeset a.plugin_open_external_links_in_new_tab::before {
         content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
         margin: 0 3px 0 5px;
 }
 ```
 
-The config for CSS in `mkdocs.yml`:
+The required config for CSS is`:
 
 ```yml
+# mkdocs.yml
 extra_css:
   - stylesheets/extra.css
 ```

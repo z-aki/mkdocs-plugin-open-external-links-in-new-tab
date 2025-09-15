@@ -55,7 +55,6 @@ class Plugin(BasePlugin[OpenInNewTabPluginConfig]):
             if href and is_external_link(href, self.config):
                 link.set("target", "_blank")
                 link.set("rel", "noopener noreferrer")
-                link.set("plugin_open_external_links_in_new_tab", "")
-
+                link.classes.add("plugin_open_external_links_in_new_tab")
 
         return tostring(content, encoding="unicode")
